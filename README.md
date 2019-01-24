@@ -91,6 +91,7 @@ All options are optional, including the `el`.
     // like a jQuery selection are not supported.
     el: document.querySelector('.c-datepicker-btn'),
     // if `el` is set, the format used to display the datetime in the input, 
+    // Format value from calendar with moment.js library [https://momentjs.com/docs/#/parsing/string-format/](Moment.js formating API)
     format: 'DD/MM/YY', 
     //  the default value of the picker
     default: moment(),
@@ -105,6 +106,13 @@ All options are optional, including the `el`.
     // the container to append the picker. If you change this, you need to make
     // sure your element has a z-index > 0 so that it displays in front of the scrim.
     container: document.body,    
+
+    //24hour format settings
+    twentyFourHours: true /* If you want to display 24 hour format instead onf 12 AM/PM - defaults to false */
+    cancelText: 'Cancel', /* hinting on time selection can be different from calendar hinting */
+    okText: 'OK' /* hinting on time selection can be different from calendar hinting */
+
+
     // cosmetic classes that can be overriden
     // mostly used for styling the calendar
     styles: {

@@ -17,6 +17,10 @@ $primary: #00bcd4 !default;
   }
 }
 
+[class^="c-datepicker"] {
+  user-select: none;
+}
+
 .c-datepicker {
   min-height: 610px;
   position: fixed;
