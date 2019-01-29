@@ -18,7 +18,7 @@ $primary: #00bcd4 !default;
 }
 
 [class^="c-datepicker"] {
-  user-select: none;
+
 }
 
 .c-datepicker {
@@ -38,6 +38,18 @@ $primary: #00bcd4 !default;
   will-change: opacity;
   transition: 200ms ease-in-out opacity, 200ms ease-in-out top;
 
+  @media (max-width: 768px) {
+    min-height: auto;
+    overflow-y: scroll;
+    max-height: 90%;
+  }
+
+  @media (max-height: 767px) and (orientation: landscape) {
+    min-height: auto;
+    overflow-y: scroll;
+    max-height: 90%;
+  }
+
   &--open {
     opacity: 1;
     top: 50%;
@@ -50,6 +62,13 @@ $primary: #00bcd4 !default;
 
 .c-datepicker__header {
   position: relative;
+
+  @media screen and (orientation: portrait) {
+    #toolbar {
+      width: 100%;
+    }
+  }
+
 }
 
 .c-datepicker__header-day {
@@ -187,10 +206,7 @@ $primary: #00bcd4 !default;
 }
 
 .modal-btns {
-  padding: 20px;
-  position: absolute;
-  bottom: 0;
-  right: 0;
+  padding: 10px;
 }
 
 .c-datepicker__day-body {
@@ -226,6 +242,7 @@ $primary: #00bcd4 !default;
   color: rgba(0,0,0,0.54);
   font-size: 12px;
   height: 36px;
+  text-align: center;
 }
 
 .c-datepicker__day-head, c-datepicker__day-body {
@@ -264,6 +281,7 @@ $primary: #00bcd4 !default;
 
 .c-datepicker__days {
   margin: 10px 20px;
+  text-align: center;
 }
 
 .c-datepicker__header-toggle {

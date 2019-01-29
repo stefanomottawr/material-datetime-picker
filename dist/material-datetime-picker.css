@@ -11,9 +11,6 @@
   .c-scrim--shown {
     opacity: 1; }
 
-[class^="c-datepicker"] {
-  user-select: none; }
-
 .c-datepicker {
   min-height: 610px;
   position: fixed;
@@ -30,12 +27,25 @@
   opacity: 0;
   will-change: opacity;
   transition: 200ms ease-in-out opacity, 200ms ease-in-out top; }
+  @media (max-width: 768px) {
+    .c-datepicker {
+      min-height: auto;
+      overflow-y: scroll;
+      max-height: 90%; } }
+  @media (max-height: 767px) and (orientation: landscape) {
+    .c-datepicker {
+      min-height: auto;
+      overflow-y: scroll;
+      max-height: 90%; } }
   .c-datepicker--open {
     opacity: 1;
     top: 50%; }
 
 .c-datepicker__header {
   position: relative; }
+  @media screen and (orientation: portrait) {
+    .c-datepicker__header #toolbar {
+      width: 100%; } }
 
 .c-datepicker__header-day {
   height: 32px;
@@ -140,10 +150,7 @@
   opacity: 1; }
 
 .modal-btns {
-  padding: 20px;
-  position: absolute;
-  bottom: 0;
-  right: 0; }
+  padding: 10px; }
 
 .c-datepicker__day-body {
   font-size: 12px;
@@ -169,7 +176,8 @@
 .c-datepicker__day-head {
   color: rgba(0, 0, 0, 0.54);
   font-size: 12px;
-  height: 36px; }
+  height: 36px;
+  text-align: center; }
 
 .c-datepicker__day-head, c-datepicker__day-body {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
@@ -199,7 +207,8 @@
   right: 0; }
 
 .c-datepicker__days {
-  margin: 10px 20px; }
+  margin: 10px 20px;
+  text-align: center; }
 
 .c-datepicker__header-toggle {
   position: absolute;
