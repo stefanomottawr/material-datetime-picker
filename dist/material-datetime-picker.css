@@ -11,6 +11,9 @@
   .c-scrim--shown {
     opacity: 1; }
 
+[class^="c-datepicker"] {
+  user-select: none; }
+
 .c-datepicker {
   min-height: 610px;
   position: fixed;
