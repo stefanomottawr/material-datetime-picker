@@ -298,7 +298,7 @@ var DateTimePicker = function (_Events) {
     value: function initializeRome(container, validator) {
       var onData = this.onChangeDate.bind(this);
       var weekDays = moment.localeData(this.options.locale)._weekdaysMin;
-      var startWeek = moment.localeData(this.options.locale)._week.dow;
+      var startWeek = this.options.startWeek || moment.localeData(this.options.locale)._week.dow;
       return rome(container, {
         styles: this.options.styles,
         time: false,
