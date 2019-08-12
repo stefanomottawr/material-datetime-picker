@@ -353,7 +353,8 @@ var DateTimePicker = function (_Events) {
 
       this.pickerEl.classList.remove('open');
       window.setTimeout(function () {
-        document.body.removeChild(_this2.scrimEl);
+        _this2.scrimEl.parentElement.removeChild(_this2.scrimEl);
+        //document.body.removeChild(_this2.scrimEl);
         _this2.pickerEl.parentElement.removeChild(_this2.pickerEl);
         //_this2.options.container.removeChild(_this2.pickerEl);
         _this2.trigger('close');
