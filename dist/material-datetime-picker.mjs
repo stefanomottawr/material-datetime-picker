@@ -290,7 +290,11 @@ var DateTimePicker = function (_Events) {
   createClass(DateTimePicker, [{
     key: 'initializeRome',
     value: function initializeRome(container, validator) {
+      this.closeInterval = null;
+      this.toBeHide = true;
+
       var onData = this.onChangeDate.bind(this);
+      var onHide = this.onChangeDateClose.bind(this);
       var weekDays = moment.localeData(this.options.locale)._weekdaysMin;
       var startWeek = this.options.startWeek || moment.localeData(this.options.locale)._week.dow;
       return rome(container, {
@@ -300,8 +304,8 @@ var DateTimePicker = function (_Events) {
         initialValue: this.value,
         weekdayFormat: weekDays,
         weekStart: startWeek,
-        autoClose: true
-      }).on('data', onData);
+        autoClose: false
+      }).on('data', onData).on('back', onHide).on('next', onHide);
     }
 
     // called to open the picker
@@ -523,7 +527,25 @@ var DateTimePicker = function (_Events) {
       newValue.set({ year: year, month: month - 1, date: date });
 
       this.set(newValue);
+      clearInterval(this.closeInterval);
+      var that = this;
+      this.closeInterval = setTimeout(function(){
+        if (that.toBeHide) {
+          that.clickSubmit();
+        }
+        that.toBeHide = true;
+      }, 100);
       return this;
+    }
+  }, {
+    key: 'onChangeDateClose',
+    value: function onChangeDateClose() {
+      clearInterval(this.closeInterval);
+      this.toBeHide = false;
+      var that = this;
+      this.closeInterval = setTimeout(function(){
+        that.toBeHide = true;
+      }, 300);
     }
   }, {
     key: 'mouseInHourClock',
