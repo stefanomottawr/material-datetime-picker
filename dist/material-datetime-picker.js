@@ -704,6 +704,9 @@ var DateTimePicker = function (_Events) {
     value: function setTime(time) {
       var m = moment(time).locale(this.options.locale);
       var minuteAsInt = Math.round(parseInt(m.format('mm'), 10) / 5) * 5;
+      if (minuteAsInt == 60) {
+        minuteAsInt = 0;        
+      }
       m.minutes(minuteAsInt);
 
       var hour = m.format('HH');
