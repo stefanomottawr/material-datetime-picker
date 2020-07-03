@@ -522,7 +522,7 @@ var DateTimePicker = function (_Events) {
       newValue.set({ year: year, month: month - 1, date: date });
 
       this.set(newValue);
-      return this;
+      return this.clickSubmit();
     }
   }, {
     key: 'mouseInHourClock',
