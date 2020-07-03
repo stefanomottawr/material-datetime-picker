@@ -305,7 +305,8 @@ var DateTimePicker = function (_Events) {
         dateValidator: validator,
         initialValue: this.value,
         weekdayFormat: weekDays,
-        weekStart: startWeek
+        weekStart: startWeek,
+        autoClose: true
       }).on('data', onData);
     }
 
@@ -528,8 +529,7 @@ var DateTimePicker = function (_Events) {
       newValue.set({ year: year, month: month - 1, date: date });
 
       this.set(newValue);
-      return this.clickSubmit();
-      //return this;
+      return this;
     }
   }, {
     key: 'mouseInHourClock',
